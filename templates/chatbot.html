@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='global.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='chatbot.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400&display=swap" />
+    <title>Chat Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      #answerOutput {
+        max-height: 200px; /* Initial max height */
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 10px;
+        transition: max-height 0.2s ease;
+      }
+      .frame-parent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .rectangle-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mainContainer" class="macbook-air-2">
+      <div class="frame-parent">
+        <div class="rectangle-parent">
+          <div class="frame-child"></div>
+          <div class="rectangle-group">
+            <div class="frame-item"></div>
+            <div class="frame-inner"></div>
+            <button style="border: none; background: none; padding: 0; cursor: pointer;" onclick="closeOverlay()">
+              <img class="carbonclose-filled-icon" loading="lazy" alt="Close" src="{{ url_for('static', filename='carbonclosefilled.svg') }}">
+            </button>
+            <div id="overlay">
+              <!-- Overlay content -->
+            </div>
+            <div class="rectangle-container">
+              <div class="rectangle-div"></div>
+              <input id="userInput" class="enter-your-text" placeholder="Enter your text..........." type="text" />
+              <img class="tablersend-icon" alt="" src="{{ url_for('static', filename='tablersend.svg') }}" onclick="sendMessage()" style="cursor: pointer;">
+            </div>
+            <img class="magerobot-happy-fill-icon" loading="lazy" alt="" src="{{ url_for('static', filename='magerobothappyfill.svg') }}">
+            <img class="magerobot-happy-fill-icon1" loading="lazy" alt="" src="{{ url_for('static', filename='magerobothappyfill.svg') }}">
+            <img class="ggprofile-icon" loading="lazy" alt="" src="{{ url_for('static', filename='ggprofile.svg') }}">
+            <div class="chat-bubble">
+              <div class="chat-bubble-child"></div>
+              <div class="hey-there-how">Hey there, how can I assist you?</div>
+            </div>
+            <div id="chatOutput" class="frame-child1"></div>
+            <div id="answerOutput" class="rectangle-textarea"></div>
+          </div>
+          <img class="subject-2-3" loading="lazy" alt="" src="{{ url_for('static', filename='subject-2-3@2x.png') }}">
+        </div>
+      </div>
+    </div>
+    <script>
+      function sendMessage() {
+        var userInput = document.getElementById('userInput').value;
+        var chatOutput = document.getElementById('chatOutput');
+        chatOutput.innerHTML += `<p>${userInput}</p>`;
+        document.getElementById('userInput').value = ''; // Clear the input field
+
+        // Send user input to Flask backend
+        fetch('/get_answer', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ question: userInput }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            var answerOutput = document.getElementById('answerOutput');
+            answerOutput.innerHTML = data.answer;
+            resizeAnswerOutput();
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      }
+
+      function resizeAnswerOutput() {
+        var answerOutput = document.getElementById('answerOutput');
+        answerOutput.style.maxHeight = answerOutput.scrollHeight + 'px';
+      }
+
+      function closeOverlay() {
+        var mainContainer = document.getElementById('mainContainer');
+        mainContainer.style.display = 'none';
+      }
+    </script>
+  </body>
+</html>

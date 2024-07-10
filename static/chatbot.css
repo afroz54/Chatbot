@@ -1,0 +1,215 @@
+.frame-child,
+.frame-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-11xl);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.frame-child {
+  background: linear-gradient(180deg, #d9d9d9, rgba(217, 217, 217, 0.55));
+}
+.frame-item {
+  background: linear-gradient(80.09deg, #10a3ff 2.42%, #0a6299);
+}
+.frame-inner {
+  position: absolute;
+  top: 81px;
+  left: 0;
+  background-color: #d9d9d9;
+  width: 440px;
+  height: 35px;
+  z-index: 2;
+}
+.carbonclose-filled-icon {
+  position: absolute;
+  top: 11px;
+  left: 398px;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  z-index: 2;
+}
+.rectangle-group {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-11xl);
+  background: linear-gradient(80.09deg, #10a3ff 2.42%, #0a6299);
+  width: 440px;
+  height: 116px;
+  z-index: 1;
+}
+.rectangle-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-white);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.enter-your-text {
+  border: 0;
+  outline: 0;
+  font-weight: 100;
+  font-family: var(--font-inter);
+  font-size: var(--font-size-xl);
+  background-color: transparent;
+  position: absolute;
+  top: 9px;
+  left: 14px;
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+  height: 25px;
+  width: 330px;
+  padding: 0;
+  z-index: 2;
+}
+.tablersend-icon {
+  position: absolute;
+  top: 8px;
+  left: 352px;
+  width: 26px;
+  height: 27px;
+  overflow: hidden;
+  z-index: 2;
+}
+.rectangle-container {
+  position: absolute;
+  top: 550px;
+  left: 27px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-white);
+  width: 389px;
+  height: 43px;
+  z-index: 1;
+}
+.ggprofile-icon,
+.magerobot-happy-fill-icon,
+.magerobot-happy-fill-icon1 {
+  position: absolute;
+  top: 99px;
+  left: 12px;
+  width: 43px;
+  height: 44px;
+  overflow: hidden;
+  z-index: 3;
+}
+.ggprofile-icon,
+.magerobot-happy-fill-icon1 {
+  top: 271px;
+  z-index: 1;
+}
+.ggprofile-icon {
+  top: 176px;
+  left: 385px;
+  width: 39px;
+  height: 40px;
+}
+.chat-bubble-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-white);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.hey-there-how {
+  position: absolute;
+  width: calc(100% - 19px);
+  top: 4px;
+  left: 8px;
+  display: inline-block;
+  height: 49px;
+  z-index: 4;
+}
+.chat-bubble,
+.frame-child1,
+.rectangle-textarea {
+  position: absolute;
+  top: 99px;
+  left: 69px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-white);
+  width: 260px;
+  height: 55px;
+  z-index: 3;
+}
+.frame-child1,
+.rectangle-textarea {
+  top: 176px;
+  left: 115px;
+  z-index: 1;
+}
+.rectangle-textarea {
+  border: 0;
+  height: 242px;
+  outline: 0;
+  top: 270px;
+  left: 69px;
+}
+.rectangle-parent {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  border-radius: var(--br-11xl);
+  background: linear-gradient(180deg, #d9d9d9, rgba(217, 217, 217, 0.55));
+  width: 100%;
+  height: 628px;
+}
+.subject-2-3 {
+  position: absolute;
+  top: 0;
+  left: 193px;
+  width: 56px;
+  height: 72px;
+  object-fit: cover;
+  z-index: 2;
+}
+.frame-parent {
+  height: 664px;
+  width: 440px;
+  position: relative;
+  max-width: 100%;
+}
+.macbook-air-2 {
+    width: 100%;
+    position: relative;
+    background: linear-gradient(
+        185.37deg,
+        rgba(255, 255, 255, 0),
+        rgba(0, 0, 0, 0)
+      ),
+      linear-gradient(94.19deg, #00000000, #99999900);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 264px 43px 40px;
+    box-sizing: border-box;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    font-size: var(--font-size-base);
+    color: var(--color-darkslateblue-300);
+    font-family: var(--font-inter);
+}
+@media screen and (max-width: 450px) {
+  .enter-your-text,
+  .hey-there-how {
+    font-size: var(--font-size-base);
+  }
+}
+#chatOutput,
+#answerOutput {
+    font-family: 'Inter', sans-serif;
+}
+
